@@ -1,0 +1,16 @@
+# Ignore Python cache and environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+visionguard/
+
+# Ignore datasets and uploads
+uploads/
+screw_dataset/
+
+# Ignore model weights
+*.pth
+
