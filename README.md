@@ -22,7 +22,7 @@ This helps manufacturers streamline quality control with fast, reliable defect d
 
 ---
 ## Live Demo
-![Live Demo](image-1.png)
+![Live Demo](Templates/image-1.png)
 
 ---
 ##  Purpose
@@ -41,7 +41,8 @@ The purpose of this repository is to demonstrate how **deep learning can automat
 ---
 
 ##  Architecture
-![](image.png)
+![](Templates/image.png)
+
 
 **Pipeline:**
 1. **Dataset (MVTec Screw)** → split into `train / val / test` (6 classes).
