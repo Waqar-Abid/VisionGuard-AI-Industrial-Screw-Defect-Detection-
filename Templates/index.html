@@ -1,0 +1,60 @@
+
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>VisionGuard — Upload</title>
+  <style>
+    body{font-family:system-ui,Arial,sans-serif;background:#0b1220;color:#e7e9ee;margin:0}
+    .wrap{max-width:1000px;margin:40px auto;padding:0 20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+    .card{background:#111a2b;border:1px solid #1d2942;border-radius:16px;padding:24px}
+    .btn{background:#2a72ff;color:#fff;border:none;border-radius:10px;padding:10px 16px;cursor:pointer}
+    input[type=file]{width:100%;padding:10px;border-radius:8px;border:1px solid #1d2942;background:#0e1626;color:#e7e9ee}
+    img{max-width:100%;border-radius:12px}
+    h1,h2{margin-top:0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🏭 VisionGuard AI — Industrail Screw Defect Detection</h1>
+    <div class="card p-4">
+    <h4>Project Overview</h4>
+    <p>
+      This project applies deep learning to automatically detect and classify defects in screws. 
+      Using a ResNet50-based model, it supports both image and video analysis. 
+      Users can upload individual images for classification or entire videos for frame-by-frame detection. 
+      The system highlights predictions directly on the media and displays results in an elegant web interface. 
+      This helps streamline quality control by providing quick and reliable defect detection. 
+    </p>
+  </div>
+    <div class="grid">
+      <div class="card">
+        <h2>🖼️ Image Upload </h2>
+        <form action="/predict-image" method="post" enctype="multipart/form-data">
+          <input type="file" name="image" accept=".jpg,.jpeg,.png,.bmp" required>
+          <div style="height:12px"></div>
+          <button class="btn" type="submit">Predict</button>
+        </form>
+
+        {% if image_bytes %}
+             <div style="height:16px"></div>
+              <img src="data:image/jpeg;base64,{{ image_bytes }}" />
+                {% endif %}
+
+      </div>
+
+      <div class="card">
+        <h2>🎬 Video Upload </h2>
+        <form action="/upload-video" method="post" enctype="multipart/form-data">
+          <input type="file" name="video" accept="video/*" required>
+          <div style="height:12px"></div>
+          <button class="btn" type="submit">Upload & Play</button>
+        </form>
+        <p style="opacity:.7;margin-top:8px">After upload, you’ll be redirected and the processed video will play on the page with predictions overlaid frame-by-frame.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
